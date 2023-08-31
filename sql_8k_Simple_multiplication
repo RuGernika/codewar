@@ -1,0 +1,7 @@
+-- This kata is about multiplying a given number by eight if it is an even number and by nine otherwise.
+
+select  number, case when number%2=0 then number*8
+       when number%2<>0 then number*9
+       else 0
+       end as res
+from multiplication; 
