@@ -1,0 +1,16 @@
+-- Complete the method that takes a boolean value and return a "Yes" string for true, or a "No" string for false.
+select  bool,
+  case
+    when bool then 'Yes'
+    when not bool then 'No'
+    else 'error'
+  end as res
+from booltoword;
+
+
+select bool,
+replace (
+         replace (bool , 0, 'No'),
+        1,'Yes') res
+   from booltoword
+
