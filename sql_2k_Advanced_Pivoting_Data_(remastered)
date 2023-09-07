@@ -1,0 +1,52 @@
+-- DESCRIPTION:
+-- Your task is to calculate the amount of sales for each category of products for each department. But for a better look we want to pivot the table in a way that the columns become the departments name (with id) and each row contain the amount for each category. Departments in columns should be ordered by their id in ascending order and the resulting table should be ordered by category id as well.
+
+-- As we are making a report for an accountant who likes to double check everything so they asked us to include totals by rows and by columns. 
+-- For the sake of simplicity in this report we have no conditions about dates so we include all sales through the history of our company.
+
+-- Our database has tables: products, categories, departments, sales.
+
+-- Table products has structure:
+
+-- id (integer): Primary key
+-- name (text): The name of the product (not used in the report)
+-- category_id (integer): The ID of category
+-- Table categories:
+
+-- id (integer): Primary key
+-- name (text): The name of the category.
+-- Table departments:
+
+-- id (integer): Primary key
+-- name (text): The name of the department.
+-- Table sales:
+
+-- id (integer): Primary key (not used in the report)
+-- date (timestamp): Transaction date (not used in the report)
+-- product_id (integer): The ID of the product
+-- department_id (integer): The ID of the department
+-- qty (decimal): qty of goods (not used in the report)
+-- amount (money): amount of money (amount = price * qty)
+-- Your query should return:
+
+-- Cat. ID (integer): Category ID. NULL for the last line
+-- Category (text): Category name. NULL for the last line
+-- [department_name] ([department_id]) (money): amount of sales for a category within department. Total amount of sales within department for the last line
+-- Totals (money): Total amount of sales for a category. Total amount sales for the last line
+-- The result could look like:
+
+ -- Cat. ID | Category  |East department (1)|West department (2)| Totals
+-- ---------+-----------+-------------------+-------------------+-----------
+ -- 1       | Food      | $1,234.15         | $85,214.50        | $86,448.65
+ -- 2       | Drinks    | $0.00             | $46,985.11        | $46,985.11
+ -- 3       | Non-food  | $499.99           | $512.00           | $1,011.99
+ -- NULL    | NULL      | $1,734.14         | $132,711.61       | $134,445.75
+-- Notes:
+
+-- columns names don't follow SQL standards as the result should look like a report for a user
+-- departments or categories names could contain anything as they were stored in DB from the user input
+-- table 'sales' is not empty, so there is always at least one department
+-- your solution will be tested several times with different count of departments
+-- only departments/categories with at least one sale should be in the table
+-- P.S. Thanks matt c for the idea and his initial kata
+
