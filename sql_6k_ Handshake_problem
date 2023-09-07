@@ -24,4 +24,4 @@ $$ LANGUAGE plpgsql;
 select  n, calculate_minimal_people(n)
   as res   from participants;
 
-select n, sign(n)::int * ceil((sqrt(8*n+1)+1)/2)::int as res from participants
+select n, sign(n)::int * ceil((sqrt(8*n+1)+1)/2)::int as res from participants;
