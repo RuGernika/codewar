@@ -3,3 +3,7 @@
 -- The input string will only consist of lower case letters and/or spaces.
 
 SELECT str, LENGTH(REGEXP_REPLACE(str, '[^aeiou]', '', 'g')) AS res FROM getcount;
+
+SELECT str, LENGTH(str) - LENGTH(TRANSLATE(str,'aeiou','')) AS res
+FROM getcount;
+
